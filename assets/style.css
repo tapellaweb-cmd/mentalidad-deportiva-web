@@ -89,8 +89,8 @@ h1,h2{font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:0.5
   transition:transform .6s cubic-bezier(.65,0,.35,1);
   touch-action:pan-y;
 }
-.carousel-slide{flex:0 0 100%;aspect-ratio:4/3;}
-.carousel-slide img{width:100%;height:100%;object-fit:cover;display:block;}
+.carousel-slide{flex:0 0 100%;width:100%;position:relative;padding-top:75%;}
+.carousel-slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
 .carousel-dots{display:flex;justify-content:center;gap:10px;margin-top:16px;}
 .carousel-dot{
   width:9px;height:9px;border-radius:50%;border:none;padding:0;
