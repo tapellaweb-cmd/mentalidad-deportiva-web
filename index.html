@@ -72,10 +72,17 @@ src="https://www.facebook.com/tr?id=4065911757006473&ev=PageView&noscript=1"
 </section>
 
 <section class="gallery">
-  <div class="gallery-track">
-    <img src="assets/img/rugbier.jpg" alt="Jugadora de rugby en acción">
-    <img src="assets/img/basquet.jpg" alt="Basquetbolista campeón celebrando">
-    <img src="assets/img/maratonista-mujer.jpg" alt="Corredora llegando a la meta con los brazos en alto">
+  <div class="carousel" id="galleryCarousel">
+    <div class="carousel-track">
+      <div class="carousel-slide"><img src="assets/img/rugbier.jpg" alt="Jugadora de rugby en acción"></div>
+      <div class="carousel-slide"><img src="assets/img/basquet.jpg" alt="Basquetbolista campeón celebrando"></div>
+      <div class="carousel-slide"><img src="assets/img/maratonista-mujer.jpg" alt="Corredora llegando a la meta con los brazos en alto"></div>
+    </div>
+    <div class="carousel-dots">
+      <button class="carousel-dot is-active" aria-label="Foto 1"></button>
+      <button class="carousel-dot" aria-label="Foto 2"></button>
+      <button class="carousel-dot" aria-label="Foto 3"></button>
+    </div>
   </div>
 </section>
 
@@ -152,5 +159,44 @@ src="https://www.facebook.com/tr?id=4065911757006473&ev=PageView&noscript=1"
   <p>© 2026 Construye tu Confianza. Todos los derechos reservados.</p>
 </footer>
 
+<script>
+(function(){
+  var root = document.getElementById('galleryCarousel');
+  if(!root) return;
+  var track = root.querySelector('.carousel-track');
+  var slides = root.querySelectorAll('.carousel-slide');
+  var dots = root.querySelectorAll('.carousel-dot');
+  var index = 0, timer = null, startX = null;
+
+  function go(i){
+    index = (i + slides.length) % slides.length;
+    track.style.transform = 'translateX(-' + (index * 100) + '%)';
+    dots.forEach(function(d, di){ d.classList.toggle('is-active', di === index); });
+  }
+  function next(){ go(index + 1); }
+  function start(){ stop(); timer = setInterval(next, 4000); }
+  function stop(){ if(timer){ clearInterval(timer); timer = null; } }
+
+  dots.forEach(function(d, di){
+    d.addEventListener('click', function(){ go(di); start(); });
+  });
+
+  root.addEventListener('mouseenter', stop);
+  root.addEventListener('mouseleave', start);
+
+  track.addEventListener('touchstart', function(e){ stop(); startX = e.touches[0].clientX; }, {passive:true});
+  track.addEventListener('touchend', function(e){
+    if(startX === null) return;
+    var dx = e.changedTouches[0].clientX - startX;
+    if(dx > 40) go(index - 1);
+    else if(dx < -40) go(index + 1);
+    startX = null;
+    start();
+  }, {passive:true});
+
+  go(0);
+  start();
+})();
+</script>
 </body>
 </html>
