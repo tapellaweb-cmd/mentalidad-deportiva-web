@@ -118,9 +118,12 @@ src="https://www.facebook.com/tr?id=4065911757006473&ev=PageView&noscript=1"
 
 <section class="authority">
   <div class="container authority-grid">
-    <video class="authority-video" poster="assets/img/jorge.jpg" controls preload="metadata" playsinline>
-      <source src="assets/video/video-landing.mp4" type="video/mp4">
-    </video>
+    <div class="authority-video-wrap">
+      <video class="authority-video" id="authorityVideo" poster="assets/img/jorge.jpg" controls muted playsinline preload="metadata">
+        <source src="assets/video/video-landing.mp4" type="video/mp4">
+      </video>
+      <button class="video-unmute" id="videoUnmute" aria-label="Activar el sonido">🔇 Tocá para activar el sonido</button>
+    </div>
     <div class="authority-text">
       <span class="eyebrow">QUIÉN LO ARMÓ</span>
       <h2>No es teoría. Es lo que se usa en el vestuario de los que compiten en serio.</h2>
@@ -198,6 +201,35 @@ src="https://www.facebook.com/tr?id=4065911757006473&ev=PageView&noscript=1"
 
   go(0);
   start();
+})();
+
+(function(){
+  var video = document.getElementById('authorityVideo');
+  var unmuteBtn = document.getElementById('videoUnmute');
+  if(!video || !unmuteBtn) return;
+
+  function syncUnmuteVisibility(){
+    unmuteBtn.style.display = (video.muted && !video.paused) ? 'flex' : 'none';
+  }
+
+  unmuteBtn.addEventListener('click', function(){
+    video.muted = false;
+    video.play();
+  });
+  video.addEventListener('volumechange', syncUnmuteVisibility);
+  video.addEventListener('play', syncUnmuteVisibility);
+  video.addEventListener('pause', syncUnmuteVisibility);
+
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        video.play().catch(function(){});
+      } else {
+        video.pause();
+      }
+    });
+  }, {threshold:0.5});
+  observer.observe(video);
 })();
 </script>
 </body>
