@@ -139,6 +139,18 @@ h1,h2{font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:0.5
 .authority-text h2{font-size:1.8rem;margin:14px 0 18px;}
 .authority-text p{color:var(--muted);font-size:1.05rem;line-height:1.6;}
 
+/* TESTIMONIALS */
+.testimonials{padding:80px 0;}
+.testimonials h2{font-size:2rem;margin:10px 0 40px;}
+.testimonials-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+.testimonial{
+  background:#141824;border:1px solid #222838;border-radius:12px;
+  padding:24px;display:flex;flex-direction:column;gap:10px;
+}
+.testimonial p{color:var(--ink);font-size:0.95rem;line-height:1.55;font-style:italic;}
+.testimonial strong{color:var(--gold);font-size:0.9rem;}
+.testimonial span{color:var(--muted);font-size:0.82rem;margin-top:-6px;}
+
 /* STADIUM CTA BANNER */
 .stadium{
   position:relative;padding:140px 24px;text-align:center;
@@ -171,7 +183,7 @@ h1,h2{font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:0.5
 .footer p{color:var(--muted);font-size:0.8rem;}
 
 @media (max-width:760px){
-  .pain-grid,.modules-grid{grid-template-columns:1fr;}
+  .pain-grid,.modules-grid,.testimonials-grid{grid-template-columns:1fr;}
   .bonus-strip{grid-template-columns:1fr;gap:28px;}
   .authority-grid{grid-template-columns:1fr;text-align:center;}
   .authority-video{max-width:280px;margin:0 auto;}
