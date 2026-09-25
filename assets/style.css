@@ -43,7 +43,7 @@ h1,h2{font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:0.5
 }
 .hero-bg{
   position:absolute;inset:0;
-  background:url('img/futbolista.jpg') center 20%/cover no-repeat;
+  background:url('img/futbolista.webp') center 20%/cover no-repeat;
 }
 .hero-overlay{
   position:absolute;inset:0;
@@ -171,7 +171,7 @@ h1,h2{font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:0.5
 /* STADIUM CTA BANNER */
 .stadium{
   position:relative;padding:140px 24px;text-align:center;
-  background:url('img/estadio.jpg') center 40%/cover no-repeat;
+  background:url('img/estadio.webp') center 40%/cover no-repeat;
 }
 .stadium-overlay{
   position:absolute;inset:0;background:rgba(11,14,20,.78);
