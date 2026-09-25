@@ -72,17 +72,12 @@ src="https://www.facebook.com/tr?id=4065911757006473&ev=PageView&noscript=1"
 </section>
 
 <section class="gallery">
-  <div class="carousel" id="galleryCarousel">
-    <div class="carousel-track">
-      <div class="carousel-slide"><img src="assets/img/rugbier.webp" alt="Jugadora de rugby en acción"></div>
-      <div class="carousel-slide"><img src="assets/img/basquet.webp" alt="Basquetbolista campeón celebrando"></div>
-      <div class="carousel-slide"><img src="assets/img/maratonista-mujer.webp" alt="Corredora llegando a la meta con los brazos en alto"></div>
-    </div>
-    <div class="carousel-dots">
-      <button class="carousel-dot is-active" aria-label="Foto 1"></button>
-      <button class="carousel-dot" aria-label="Foto 2"></button>
-      <button class="carousel-dot" aria-label="Foto 3"></button>
-    </div>
+  <div class="gallery-strip" id="galleryStrip">
+    <img src="assets/img/rugbier-p.webp" alt="Jugadora de rugby en acción" width="720" height="960">
+    <img src="assets/img/ufc-p.webp" alt="Peleador de artes marciales mixtas antes de la pelea" width="720" height="960">
+    <img src="assets/img/basquet-p.webp" alt="Basquetbolista campeón celebrando" width="720" height="960">
+    <img src="assets/img/hockey-p.webp" alt="Jugadora de hockey sonriendo con el palo sobre la cancha" width="720" height="960">
+    <img src="assets/img/maratonista-p.webp" alt="Corredora llegando a la meta con los brazos en alto" width="720" height="960">
   </div>
 </section>
 
@@ -117,18 +112,24 @@ src="https://www.facebook.com/tr?id=4065911757006473&ev=PageView&noscript=1"
 </section>
 
 <section class="authority">
-  <div class="container authority-grid">
-    <div class="authority-video-wrap">
-      <video class="authority-video" id="authorityVideo" poster="assets/img/jorge-video-poster.jpg" controls muted playsinline preload="metadata">
-        <source src="assets/video/video-landing.mp4" type="video/mp4">
-      </video>
-      <button class="video-unmute" id="videoUnmute" aria-label="Activar el sonido">🔇 Tocá para activar el sonido</button>
+  <div class="container">
+    <div class="authority-head">
+      <span class="eyebrow center">QUIÉN LO ARMÓ</span>
+      <h2 class="center">No es teoría. Es lo que se usa en el vestuario de los que compiten en serio.</h2>
     </div>
-    <div class="authority-text">
-      <span class="eyebrow">QUIÉN LO ARMÓ</span>
-      <h2>No es teoría. Es lo que se usa en el vestuario de los que compiten en serio.</h2>
-      <p>Este método nació trabajando mentalidad con deportistas reales, en el momento exacto en que más se juegan: antes del partido, antes de la final, antes del punto que define todo. Lo que ves acá es esa misma metodología, ahora en video, para que la trabajes a tu ritmo, las veces que la necesites.</p>
+    <div class="authority-pair">
+      <div class="authority-video-wrap">
+        <video class="authority-video" id="authorityVideo" poster="assets/img/jorge-video-poster.jpg" controls muted playsinline preload="metadata">
+          <source src="assets/video/video-landing.mp4" type="video/mp4">
+        </video>
+        <button class="video-unmute" id="videoUnmute" aria-label="Activar el sonido">🔇 Tocá para activar el sonido</button>
+      </div>
+      <div class="book-card">
+        <img class="book-photo" src="assets/img/jorge-libro.webp" alt="Jorge Tapella con su libro 7 Pilares, Mente Deportiva A.R." width="320" height="426" loading="lazy">
+        <p class="book-cap"><strong>7 Pilares · Mente Deportiva A.R.</strong><span>El libro de Jorge Tapella en el que se basa el curso</span></p>
+      </div>
     </div>
+    <p class="authority-body">Este método nació trabajando mentalidad con deportistas reales, en el momento exacto en que más se juegan: antes del partido, antes de la final, antes del punto que define todo. Lo que ves acá es esa misma metodología, ahora en video, para que la trabajes a tu ritmo, las veces que la necesites.</p>
   </div>
 </section>
 
@@ -229,41 +230,18 @@ src="https://www.facebook.com/tr?id=4065911757006473&ev=PageView&noscript=1"
 
 <script>
 (function(){
-  var root = document.getElementById('galleryCarousel');
-  if(!root) return;
-  var track = root.querySelector('.carousel-track');
-  var slides = root.querySelectorAll('.carousel-slide');
-  var dots = root.querySelectorAll('.carousel-dot');
-  var index = 0, timer = null, startX = null;
-
-  function go(i){
-    index = (i + slides.length) % slides.length;
-    track.style.transform = 'translateX(-' + (index * 100) + '%)';
-    dots.forEach(function(d, di){ d.classList.toggle('is-active', di === index); });
-  }
-  function next(){ go(index + 1); }
-  function start(){ stop(); timer = setInterval(next, 4000); }
-  function stop(){ if(timer){ clearInterval(timer); timer = null; } }
-
-  dots.forEach(function(d, di){
-    d.addEventListener('click', function(){ go(di); start(); });
-  });
-
-  root.addEventListener('mouseenter', stop);
-  root.addEventListener('mouseleave', start);
-
-  track.addEventListener('touchstart', function(e){ stop(); startX = e.touches[0].clientX; }, {passive:true});
-  track.addEventListener('touchend', function(e){
-    if(startX === null) return;
-    var dx = e.changedTouches[0].clientX - startX;
-    if(dx > 40) go(index - 1);
-    else if(dx < -40) go(index + 1);
-    startX = null;
-    start();
-  }, {passive:true});
-
-  go(0);
-  start();
+  var tr=document.getElementById('galleryStrip'); if(!tr) return;
+  var n=tr.children.length, GAP=12, last=0, idx=0;
+  for(var k=0;k<2;k++){ var c=tr.children[k].cloneNode(true); c.setAttribute('aria-hidden','true'); c.setAttribute('alt',''); tr.appendChild(c); }
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function step(){ return tr.children[0].getBoundingClientRect().width+GAP; }
+  ['touchstart','pointerdown'].forEach(function(e){ tr.addEventListener(e,function(){last=Date.now();},{passive:true}); });
+  setInterval(function(){
+    if(Date.now()-last<6000) return;
+    idx=Math.round(tr.scrollLeft/step())+1;
+    tr.scrollTo({left:idx*step(),behavior:reduce?'auto':'smooth'});
+    if(idx>=n){ setTimeout(function(){ tr.style.scrollSnapType='none'; tr.scrollTo({left:(idx-n)*step(),behavior:'auto'}); requestAnimationFrame(function(){ tr.style.scrollSnapType=''; }); }, reduce?50:700); }
+  },3500);
 })();
 
 (function(){
