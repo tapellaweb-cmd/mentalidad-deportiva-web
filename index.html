@@ -132,6 +132,24 @@ src="https://www.facebook.com/tr?id=4065911757006473&ev=PageView&noscript=1"
   </div>
 </section>
 
+<section class="track">
+  <div class="container">
+    <span class="eyebrow center">TRAYECTORIA</span>
+    <h2 class="center">Mi experiencia de campo</h2>
+    <div class="track-carousel">
+      <div class="track-strip" id="trackStrip">
+        <img src="assets/img/running-1.webp" alt="Equipo de running antes de una carrera nocturna" loading="lazy">
+        <img src="assets/img/running-2.webp" alt="Equipo de running con su bandera" loading="lazy">
+        <img src="assets/img/running-3.webp" alt="Equipo de running después de una carrera" loading="lazy">
+        <img src="assets/img/running-6.webp" alt="Entrenamiento de running al aire libre" loading="lazy">
+        <img src="assets/img/running-4.webp" alt="Equipo de running en una maratón" loading="lazy">
+        <img src="assets/img/running-5.webp" alt="Equipo de running en una carrera de campo" loading="lazy">
+        <img src="assets/img/running-7.webp" alt="Entrenamiento de running en una subida" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="testimonials">
   <div class="container">
     <span class="eyebrow center">LO QUE DICEN</span>
@@ -255,6 +273,20 @@ src="https://www.facebook.com/tr?id=4065911757006473&ev=PageView&noscript=1"
     });
   }, {threshold:0.5});
   observer.observe(video);
+})();
+</script>
+<script>
+(function(){
+  var tr=document.getElementById('trackStrip'); if(!tr) return;
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches, last=0, GAP=10;
+  function step(){ return tr.children[0].getBoundingClientRect().width+GAP; }
+  function cur(){ return Math.round(tr.scrollLeft/step()); }
+  function next(){
+    var end=tr.scrollLeft>=tr.scrollWidth-tr.clientWidth-4;
+    tr.scrollTo({left:end?0:(cur()+1)*step(),behavior:reduce?'auto':'smooth'});
+  }
+  ['touchstart','pointerdown'].forEach(function(e){ tr.addEventListener(e,function(){last=Date.now();},{passive:true}); });
+  setInterval(function(){ if(Date.now()-last>6000) next(); },3000);
 })();
 </script>
 </body>
