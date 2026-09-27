@@ -43,7 +43,12 @@ h1,h2{font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:0.5
 }
 .hero-bg{
   position:absolute;inset:0;
-  background:url('img/futbolista.webp') center 20%/cover no-repeat;
+  width:100%;height:100%;
+  object-fit:cover;object-position:center 20%;
+  background:#000;
+}
+@media(max-width:767px){
+  .hero-bg{object-position:center center;}
 }
 .hero-overlay{
   position:absolute;inset:0;
@@ -210,6 +215,7 @@ h1,h2{font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:0.5
 .price-box .price-strike{display:block;font-family:'Anton',sans-serif;font-size:2.4rem;color:#fff;text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:3px;opacity:1;margin-bottom:6px;}
 .price{display:block;font-family:'Anton',sans-serif;font-size:3rem;color:var(--gold);}
 .price-note{color:var(--muted);font-size:0.9rem;}
+.price-usd{display:block;color:var(--muted);font-size:0.78rem;margin-top:4px;opacity:.75;}
 .secure-note{margin-top:16px;color:var(--muted);font-size:0.85rem;}
 
 /* FOOTER */
