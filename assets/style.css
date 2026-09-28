@@ -173,7 +173,7 @@ h1,h2{font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:0.5
 .testimonials-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
 .testimonials-grid.t-carousel{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
 .t-carousel::-webkit-scrollbar{display:none;}
-.t-carousel .testimonial{min-width:0;flex:0 0 calc((100% - 20px)/2);scroll-snap-align:start;justify-content:space-between;}
+.t-carousel .testimonial{min-width:0;flex:0 0 calc((100% - 20px)/2);scroll-snap-align:start;}
 .t-sil{width:52px;height:52px;border-radius:50%;border:2px solid var(--gold);overflow:hidden;background:#0f1219;flex:none;display:block;}
 .t-sil svg{width:100%;height:100%;display:block;}
 .testimonial{
