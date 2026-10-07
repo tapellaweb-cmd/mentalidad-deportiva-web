@@ -218,15 +218,15 @@ src="https://www.facebook.com/tr?id=4065911757006473&ev=PageView&noscript=1"
           <li>✔ Los 7 pilares del entrenamiento mental</li>
           <li>✔ Hábitos no negociables e historias de campeones</li>
           <li>✔ Prácticas paso a paso en cada capítulo</li>
-          <li>✔ Lo recibís en tu mail, en PDF</li>
+          <li>✔ Acceso inmediato, para leer en pantalla</li>
         </ul>
         <div class="price-box">
           <span class="price">$20.000 ARS</span>
-          <span class="price-note">pago único · te llega por mail</span>
+          <span class="price-note">pago único · acceso inmediato al pagar</span>
           <span class="price-usd">≈ USD 20 para el exterior</span>
         </div>
-        <a href="https://mpago.li/2mTPxKv" id="buyBook" class="btn btn-offer">QUIERO EL LIBRO →</a>
-        <p class="offer-note">Pagás con Mercado Pago y el libro te llega por mail. ¿Querés recibirlo enseguida? <a href="https://wa.me/5492494549463?text=Hola%20Jorge%2C%20ya%20pagu%C3%A9%20el%20libro%207%20Pilares.%20Te%20mando%20el%20comprobante.%20Mi%20mail%20es%3A%20" target="_blank" rel="noopener">Mandanos el comprobante y tu mail por WhatsApp</a>.</p>
+        <a href="https://tapellaweb.systeme.io/8af89efc-8979fe55" id="buyBook" class="btn btn-offer" onclick="typeof fbq==='function'&&fbq('track','InitiateCheckout',{content_name:'ebook'})">QUIERO EL LIBRO →</a>
+        <p class="offer-note">Pagás y accedés al libro al instante. ¿Algún problema? <a href="https://wa.me/5492494549463?text=Hola%20Jorge%2C%20tengo%20un%20problema%20con%20el%20libro%207%20Pilares" target="_blank" rel="noopener">Escribinos por WhatsApp</a>.</p>
       </article>
 
       <article class="offer offer-featured">
@@ -256,24 +256,6 @@ src="https://www.facebook.com/tr?id=4065911757006473&ev=PageView&noscript=1"
 </section>
 
 
-<div class="modal" id="bookModal" hidden aria-hidden="true">
-  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="bookModalTitle">
-    <button type="button" class="modal-close" id="bookClose" aria-label="Cerrar">×</button>
-    <h3 id="bookModalTitle">Dónde te mando el libro</h3>
-    <p class="modal-sub">Dejanos tu nombre y tu mail. Después te llevamos a pagar con Mercado Pago.</p>
-    <form id="bookForm" novalidate>
-      <label>Nombre y apellido<input type="text" id="bkName" name="nombre" autocomplete="name" required placeholder="Tu nombre y apellido"></label>
-      <label>Mail<input type="email" id="bkMail" name="mail" autocomplete="email" autocapitalize="off" required placeholder="tu@mail.com"></label>
-      <label>Repetí tu mail<input type="email" id="bkMail2" autocomplete="off" autocapitalize="off" required placeholder="tu@mail.com"></label>
-      <p class="modal-hint" id="bkHint" hidden>¿Quisiste decir <button type="button" id="bkFix"></button>?</p>
-      <p class="modal-err" id="bkErr" hidden>Completá tu nombre y un mail válido.</p>
-      <p class="modal-warn">⚠ Asegurate de escribir bien tu mail: si no, no vamos a poder enviarte el libro.</p>
-      <button type="submit" class="btn btn-primary modal-go">IR A PAGAR →</button>
-      <p class="modal-fast">¿Querés recibirlo enseguida? Después de pagar, <a href="https://wa.me/5492494549463?text=Hola%20Jorge%2C%20ya%20pagu%C3%A9%20el%20libro%207%20Pilares.%20Te%20mando%20el%20comprobante.%20Mi%20mail%20es%3A%20" target="_blank" rel="noopener">mandanos el comprobante y tu mail por WhatsApp</a>.</p>
-      <p class="modal-priv">Usamos tu mail solo para enviarte el libro.</p>
-    </form>
-  </div>
-</div>
 
 <footer class="footer">
   <img src="assets/img/logo-badge.png" alt="Mentalidad Deportiva de Alto Rendimiento" class="footer-logo">
@@ -352,43 +334,6 @@ src="https://www.facebook.com/tr?id=4065911757006473&ev=PageView&noscript=1"
   }
   ['touchstart','pointerdown'].forEach(function(e){ tr.addEventListener(e,function(){last=Date.now();},{passive:true}); });
   setInterval(function(){ if(Date.now()-last>6000) next(); },4500);
-})();
-</script>
-<script>
-(function(){
-  var PAY='https://mpago.li/2mTPxKv';
-  var FORM_URL='https://docs.google.com/forms/d/e/1FAIpQLScpN0zT6xrewtPj95URLR04kxe6eXrsdjAbqbWAylX9BkovpA/formResponse'; // Google Form 'Datos para el envio de libro digital'
-  var F_NAME='entry.1146748469', F_MAIL='entry.128976735'; // Nombre y Apellido / Correo Electronico
-  var m=document.getElementById('bookModal'), btn=document.getElementById('buyBook'), f=document.getElementById('bookForm');
-  if(!m||!btn||!f) return;
-  var nm=document.getElementById('bkName'), ml=document.getElementById('bkMail'), ml2=document.getElementById('bkMail2'), er=document.getElementById('bkErr'), hint=document.getElementById('bkHint'), fix=document.getElementById('bkFix');
-  var DOM={'gmail.com':['gmial.com','gmal.com','gmai.com','gamil.com','gmail.con','gmail.co','gmaill.com','gmeil.com','gmail.com.ar','gnail.com','gmail.cm'],'hotmail.com':['hotmial.com','hotmal.com','hotmai.com','hotmail.con','hotmail.co','hotnail.com','homail.com','hotmail.cm'],'outlook.com':['outlok.com','outlook.con','outlook.co','outloock.com'],'yahoo.com':['yaho.com','yahho.com','yahoo.con','yahoo.co','yahoo.cm'],'yahoo.com.ar':['yahoo.com.a','yahoo.com.arr'],'icloud.com':['iclod.com','icloud.con','icloud.co','iclould.com'],'live.com':['live.con','live.co']};
-  function suggest(a){ var p=a.toLowerCase().split('@'); if(p.length!==2) return ''; for(var d in DOM){ if(DOM[d].indexOf(p[1])>-1) return p[0]+'@'+d; } return ''; }
-  function open(){ er.hidden=true; hint.hidden=true; m.hidden=false; m.setAttribute('aria-hidden','false'); document.body.classList.add('modal-open'); setTimeout(function(){nm.focus();},50); }
-  function close(){ m.hidden=true; m.setAttribute('aria-hidden','true'); document.body.classList.remove('modal-open'); }
-  btn.addEventListener('click',function(e){ e.preventDefault(); typeof fbq==='function'&&fbq('track','InitiateCheckout',{content_name:'ebook'}); open(); });
-  document.getElementById('bookClose').addEventListener('click',close);
-  m.addEventListener('click',function(e){ if(e.target===m) close(); });
-  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&!m.hidden) close(); });
-  fix.addEventListener('click',function(){ ml.value=fix.textContent; ml2.value=fix.textContent; hint.hidden=true; });
-  ml.addEventListener('blur',function(){ var sg=suggest(ml.value.trim()); if(sg){ fix.textContent=sg; hint.hidden=false; } else hint.hidden=true; });
-  f.addEventListener('submit',function(e){
-    e.preventDefault();
-    var n=nm.value.trim(), a=ml.value.trim(), a2=ml2.value.trim();
-    var okMail=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(a);
-    er.hidden=true;
-    if(n.length<2||!okMail){ er.textContent='Completá tu nombre y un mail válido.'; er.hidden=false; return; }
-    var sg=suggest(a); if(sg){ fix.textContent=sg; hint.hidden=false; er.textContent='Revisá tu mail: parece mal escrito.'; er.hidden=false; return; }
-    if(a.toLowerCase()!==a2.toLowerCase()){ er.textContent='Los dos mails tienen que ser iguales.'; er.hidden=false; return; }
-    hint.hidden=true;
-    typeof fbq==='function'&&fbq('track','Lead',{content_name:'ebook'});
-    var go=function(){ window.location.href=PAY; };
-    if(FORM_URL&&F_NAME&&F_MAIL){
-      var b=new URLSearchParams(); b.append(F_NAME,n); b.append(F_MAIL,a);
-      var t=setTimeout(go,2500);
-      fetch(FORM_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:b.toString()}).then(function(){clearTimeout(t);go();}).catch(function(){clearTimeout(t);go();});
-    } else { go(); }
-  });
 })();
 </script>
 </body>
