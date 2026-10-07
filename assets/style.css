@@ -243,3 +243,56 @@ h1,h2{font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:0.5
 .btn-mentor{background:var(--gold);color:#1a1a1a;font-size:1rem;padding:16px 32px;}
 .btn-mentor:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(255,183,3,.35);}
 .mentor-note{color:var(--muted);font-size:0.85rem;margin-top:12px;}
+
+/* OFERTAS: LIBRO + CURSO */
+.offers{padding:100px 0 120px;}
+.offers .container{max-width:1080px;}
+.offers h2{font-size:2.2rem;margin-bottom:14px;}
+.offers-sub{color:var(--muted);max-width:620px;margin:0 auto 48px;}
+.offers-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:stretch;}
+.offer{position:relative;display:flex;flex-direction:column;background:#141824;border:1px solid #222838;border-radius:18px;padding:36px 30px 34px;text-align:center;}
+.offer-featured{border:1px solid rgba(255,183,3,.55);background:#171b29;box-shadow:0 0 0 1px rgba(255,183,3,.15),0 20px 60px rgba(0,0,0,.4);}
+.offer-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--gold);color:#1a1a1a;font-size:.72rem;font-weight:800;letter-spacing:1.5px;padding:7px 16px;border-radius:999px;}
+.offer-tag{display:block;color:var(--gold);font-size:.78rem;font-weight:800;letter-spacing:2px;margin-bottom:18px;}
+.offer-media{height:340px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;}
+.offer-media img{max-height:100%;max-width:100%;width:auto;height:auto;object-fit:contain;filter:drop-shadow(0 18px 24px rgba(0,0,0,.5));}
+.offer h3{font-family:'Anton',sans-serif;font-weight:400;font-size:1.7rem;letter-spacing:.5px;margin-bottom:6px;color:#fff;}
+.offer-desc{color:var(--muted);margin-bottom:18px;}
+.offer-list{list-style:none;text-align:left;max-width:360px;margin:0 auto 24px;flex:1;}
+.offer-list li{padding:7px 0;color:var(--ink);font-weight:600;font-size:.95rem;}
+.offer .price-box{margin-bottom:24px;}
+.btn-offer{display:inline-block;align-self:center;width:100%;max-width:340px;box-sizing:border-box;text-align:center;font-size:1.02rem;padding:18px 20px;}
+.offer:not(.offer-featured) .btn-offer{background:var(--gold);color:#1a1a1a;box-shadow:0 10px 30px rgba(255,183,3,.25);}
+.offer:not(.offer-featured) .btn-offer:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(255,183,3,.4);}
+.offers .secure-note.center{text-align:center;margin-top:30px;}
+@media (max-width:860px){
+  .offers{padding:70px 0 90px;}
+  .offers-grid{grid-template-columns:1fr;gap:42px;}
+  .offer-media{height:300px;}
+}
+
+.offer-note{color:var(--muted);font-size:.82rem;margin-top:14px;line-height:1.5;}
+.offer-note a{color:var(--gold);}
+
+/* MODAL DE DATOS (libro) */
+.modal{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(5,7,12,.8);}
+.modal[hidden]{display:none;}
+body.modal-open{overflow:hidden;}
+.modal-box{position:relative;width:100%;max-width:420px;background:#141824;border:1px solid rgba(255,183,3,.45);border-radius:18px;padding:34px 28px 26px;box-shadow:0 30px 80px rgba(0,0,0,.6);}
+.modal-box h3{font-family:'Anton',sans-serif;font-weight:400;font-size:1.6rem;color:#fff;margin-bottom:8px;}
+.modal-sub{color:var(--muted);font-size:.92rem;margin-bottom:20px;}
+.modal-close{position:absolute;top:10px;right:14px;background:none;border:0;color:var(--muted);font-size:2rem;line-height:1;cursor:pointer;}
+.modal-close:hover{color:#fff;}
+.modal-box label{display:block;color:var(--ink);font-weight:700;font-size:.85rem;margin-bottom:14px;}
+.modal-box input{display:block;width:100%;box-sizing:border-box;margin-top:6px;padding:14px;border-radius:10px;border:1px solid #2a3350;background:#0b0e14;color:#fff;font:inherit;font-size:1rem;}
+.modal-box input:focus{outline:2px solid var(--gold);border-color:var(--gold);}
+.modal-err{color:#ff8a93;font-size:.85rem;margin:-4px 0 12px;}
+.modal-go{width:100%;box-sizing:border-box;border:0;cursor:pointer;margin-top:4px;padding:16px;}
+.modal-priv{color:var(--muted);font-size:.75rem;text-align:center;margin-top:12px;}
+
+.modal-hint{color:var(--gold);font-size:.85rem;margin:-4px 0 12px;}
+.modal-hint button{background:none;border:0;color:#fff;font:inherit;font-weight:800;text-decoration:underline;cursor:pointer;padding:0;}
+
+.modal-warn{color:#ffd166;font-size:.85rem;font-weight:700;line-height:1.4;margin:2px 0 14px;}
+.modal-fast{color:var(--muted);font-size:.82rem;text-align:center;line-height:1.5;margin-top:14px;}
+.modal-fast a{color:var(--gold);font-weight:700;}
