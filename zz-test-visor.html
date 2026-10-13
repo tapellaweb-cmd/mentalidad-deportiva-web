@@ -1,0 +1,31 @@
+<!doctype html><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><body style="background:#f4f1ea;margin:0">
+<style>
+#lector{max-width:860px;margin:0 auto;padding:8px;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+#lector .pg{display:block;width:100%;height:auto;margin:0 auto 14px;background:#fff;border-radius:6px;box-shadow:0 6px 24px rgba(0,0,0,.35)}
+#lector .ph{width:100%;aspect-ratio:7/10;margin:0 auto 14px;background:#e9e6df;border-radius:6px}
+#lector-msg{color:#555;text-align:center;padding:18px;font-family:Arial,sans-serif}
+</style>
+<div id="lector" oncontextmenu="return false"><div id="lector-msg">Cargando el libro…</div></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+(function(){
+var URL_PDF="https://d1yei2z3i6k35z.cloudfront.net/19072787/6ace71a0d71e08.66579826_out3.pdf";
+var box=document.getElementById('lector'),msg=document.getElementById('lector-msg');
+if(!window.pdfjsLib){msg.textContent='No se pudo cargar el lector. Recargá la página.';return;}
+pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+pdfjsLib.getDocument(URL_PDF).promise.then(function(pdf){
+  msg.remove();
+  var obs=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(!e.isIntersecting)return; var ph=e.target; obs.unobserve(ph);
+    pdf.getPage(+ph.dataset.n).then(function(p){
+      var w=Math.min(box.clientWidth,860),dpr=Math.min(window.devicePixelRatio||1,2);
+      var v0=p.getViewport({scale:1}),sc=(w/v0.width)*dpr,v=p.getViewport({scale:sc});
+      var c=document.createElement('canvas');c.className='pg';c.width=v.width;c.height=v.height;
+      p.render({canvasContext:c.getContext('2d'),viewport:v}).promise.then(function(){ph.replaceWith(c);});
+    });
+  });},{rootMargin:'1200px 0px'});
+  for(var i=1;i<=pdf.numPages;i++){var d=document.createElement('div');d.className='ph';d.dataset.n=i;box.appendChild(d);obs.observe(d);}
+}).catch(function(){msg.textContent='No se pudo cargar el libro. Recargá la página.';});
+})();
+</script>
+</body>
