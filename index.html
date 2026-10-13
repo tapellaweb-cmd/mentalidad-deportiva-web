@@ -293,5 +293,12 @@ src="https://www.facebook.com/tr?id=4065911757006473&ev=PageView&noscript=1"
   setInterval(function(){ if(Date.now()-last>6000) next(); },4500);
 })();
 </script>
+<script>
+(function(){var vs=document.querySelectorAll('video[autoplay]');
+function go(){vs.forEach(function(v){v.muted=true;var p=v.play();if(p&&p.catch)p.catch(function(){});});}
+go();document.addEventListener('DOMContentLoaded',go);window.addEventListener('load',go);
+['touchstart','touchend','scroll','click'].forEach(function(e){window.addEventListener(e,function h(){go();window.removeEventListener(e,h);},{passive:true});});
+})();
+</script>
 </body>
 </html>
