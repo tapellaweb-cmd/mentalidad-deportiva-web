@@ -296,3 +296,5 @@ body.modal-open{overflow:hidden;}
 .modal-warn{color:#ffd166;font-size:.85rem;font-weight:700;line-height:1.4;margin:2px 0 14px;}
 .modal-fast{color:var(--muted);font-size:.82rem;text-align:center;line-height:1.5;margin-top:14px;}
 .modal-fast a{color:var(--gold);font-weight:700;}
+
+.offers-grid.one{grid-template-columns:1fr;max-width:480px;margin-left:auto;margin-right:auto;}
