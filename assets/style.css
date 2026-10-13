@@ -324,7 +324,7 @@ body.modal-open{overflow:hidden;}
 @media(max-width:899px){
   .hero{justify-content:flex-end;padding:100px 24px 44px;}
   .hero-split{position:static;gap:0;}
-  .hero-book{position:absolute;top:22px;left:14px;width:112px;z-index:3;}
+  .hero-book{position:absolute;top:22px;left:14px;width:112px;z-index:3;filter:drop-shadow(0 10px 22px rgba(0,0,0,.7));}
   .hero-split .hero-content{max-width:100%;}
   .hero h1{font-size:clamp(2.1rem,9.2vw,3rem);}
 }
