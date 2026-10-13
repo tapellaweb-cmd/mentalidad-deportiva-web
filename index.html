@@ -58,10 +58,9 @@ src="https://www.facebook.com/tr?id=4065911757006473&ev=PageView&noscript=1"
       <h2 class="center">Mi método lo creé trabajando con deportistas reales, en el momento exacto que más se la juegan: antes de cada desafío.</h2>
     </div>
     <div class="authority-video-wrap">
-      <video class="authority-video" id="authorityVideo" poster="assets/img/video-libro-poster.jpg?v=4" controls muted playsinline preload="metadata">
-        <source src="assets/video/video-libro.mp4?v=4" type="video/mp4">
+      <video class="authority-video" id="authorityVideo" poster="assets/img/video-libro-poster.jpg?v=5" muted loop autoplay playsinline preload="auto">
+        <source src="assets/video/video-libro.mp4?v=5" type="video/mp4">
       </video>
-      <button class="video-unmute" id="videoUnmute" aria-label="Activar el sonido">🔇 Tocá para activar el sonido</button>
     </div>
     <div class="authority-quote">
       <img class="quote-photo" src="assets/img/jorge-libro.webp" alt="Jorge Tapella, autor de 7 Pilares para una Mente Deportiva" width="110" height="110" loading="lazy">
@@ -252,19 +251,7 @@ src="https://www.facebook.com/tr?id=4065911757006473&ev=PageView&noscript=1"
 (function(){
   var video = document.getElementById('authorityVideo');
   var unmuteBtn = document.getElementById('videoUnmute');
-  if(!video || !unmuteBtn) return;
-
-  function syncUnmuteVisibility(){
-    unmuteBtn.style.display = (video.muted && !video.paused) ? 'flex' : 'none';
-  }
-
-  unmuteBtn.addEventListener('click', function(){
-    video.muted = false;
-    video.play();
-  });
-  video.addEventListener('volumechange', syncUnmuteVisibility);
-  video.addEventListener('play', syncUnmuteVisibility);
-  video.addEventListener('pause', syncUnmuteVisibility);
+  if(!video) return;
 
   var observer = new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
