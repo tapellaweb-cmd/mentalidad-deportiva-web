@@ -335,3 +335,6 @@ body.modal-open{overflow:hidden;}
 
 /* Resplandor claro para que el libro se recorte del fondo oscuro */
 .hero-book,.offer-media img{filter:drop-shadow(0 0 1.5px rgba(255,255,255,.75)) drop-shadow(0 0 14px rgba(255,205,160,.45)) drop-shadow(0 12px 26px rgba(0,0,0,.55));}
+
+/* Remarcar "para las grandes ligas" en el subtítulo del hero */
+.hero-sub .hero-hl{color:var(--gold);font-weight:800;}
