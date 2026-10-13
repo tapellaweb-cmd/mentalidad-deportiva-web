@@ -332,3 +332,6 @@ body.modal-open{overflow:hidden;}
 /* Oferta por tiempo limitado */
 .price-box .price-tag{display:inline-block;background:var(--gold);color:#1a1a1a;font-size:.72rem;font-weight:800;letter-spacing:1.5px;padding:6px 14px;border-radius:999px;margin-bottom:12px;}
 .offer .price-box .price-strike{font-size:2rem;margin-bottom:0;}
+
+/* Resplandor claro para que el libro se recorte del fondo oscuro */
+.hero-book,.offer-media img{filter:drop-shadow(0 0 1.5px rgba(255,255,255,.75)) drop-shadow(0 0 14px rgba(255,205,160,.45)) drop-shadow(0 12px 26px rgba(0,0,0,.55));}
